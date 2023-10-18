@@ -72,35 +72,52 @@
 // //--------------------------------------
 
 
-class Person {
-  constructor(firstName, lastName, age, email) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-    this.email = email;
+// class Person {
+//   constructor(firstName, lastName, age, email) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//     this.email = email;
+//   }
+
+//   toString() {
+//     return `${this.firstName} ${this.lastName ? this.lastName : ''} (age: ${this.age ? this.age : ''}, email: ${this.email ? this.email : ''})`;
+//   }
+// }
+
+// function createPersonArray() {
+//   const data = [
+//     ['Maria', 'Petterson', 22, 'mp@gmail.com'],
+//     ['Lexicon'],
+//     ['Stefan', 'Larsson', 25],
+//     ['Peter', 'Jansson', 24],
+//   ];
+
+//   const people = data.map(row => {
+//     const [firstName, lastName, age, email] = row;
+//     return new Person(firstName, lastName, age, email);
+//   });
+
+//   return people;
+// }
+
+// const peopleArray = createPersonArray();
+// console.log(peopleArray.map(person => person.toString()));
+
+// //-----------------------------------
+
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
   }
 
-  toString() {
-    return `${this.firstName} ${this.lastName ? this.lastName : ''} (age: ${this.age ? this.age : ''}, email: ${this.email ? this.email : ''})`;
+  static distance(point1, point2) {
+    const betweenX = point1.x - point2.x;
+    const betweenY = point1.y - point2.y;
+    return Math.sqrt(betweenX ** 2 + betweenY ** 2);
   }
 }
-
-function createPersonArray() {
-  const data = [
-    ['Maria', 'Petterson', 22, 'mp@gmail.com'],
-    ['Lexicon'],
-    ['Stefan', 'Larsson', 25],
-    ['Peter', 'Jansson', 24],
-  ];
-
-  const people = data.map(row => {
-    const [firstName, lastName, age, email] = row;
-    return new Person(firstName, lastName, age, email);
-  });
-
-  return people;
-}
-
-const peopleArray = createPersonArray();
-console.log(peopleArray.map(person => person.toString()));
-
+let p1 = new Point(5, 5);
+let p2 = new Point(9, 8);
+console.log(Point.distance(p1, p2)); 
