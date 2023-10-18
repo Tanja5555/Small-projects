@@ -1,22 +1,22 @@
-class Rectangle {
-    constructor(width, height, color) {
-      this.width = width;
-      this.height = height;
-      this.color = color;
-    }
+// class Rectangle {
+//     constructor(width, height, color) {
+//       this.width = width;
+//       this.height = height;
+//       this.color = color;
+//     }
   
-    calcArea() {
-      return this.width * this.height;
-    }
-  }
+//     calcArea() {
+//       return this.width * this.height;
+//     }
+//   }
   
-  let rect = new Rectangle(6, 6, 'blue');
-  console.log(rect.width); 
-  console.log(rect.height); 
-  console.log(rect.color); 
-  console.log("Area is: " + rect.calcArea()); 
+//   let rect = new Rectangle(6, 6, 'blue');
+//   console.log(rect.width); 
+//   console.log(rect.height); 
+//   console.log(rect.color); 
+//   console.log("Area is: " + rect.calcArea()); 
   
-  //------------------------------------
+//   //------------------------------------
 
 // class Person {
 //     constructor(firstName, lastName, age, email) {
@@ -68,4 +68,39 @@ class Rectangle {
 // console.log(`Radius: ${c.radius}`);
 // console.log(`Diameter: ${c.diameter}`);
 // console.log(`Area: ${c.area()}`); 
+
+// //--------------------------------------
+
+
+class Person {
+  constructor(firstName, lastName, age, email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.email = email;
+  }
+
+  toString() {
+    return `${this.firstName} ${this.lastName ? this.lastName : ''} (age: ${this.age ? this.age : ''}, email: ${this.email ? this.email : ''})`;
+  }
+}
+
+function createPersonArray() {
+  const data = [
+    ['Maria', 'Petterson', 22, 'mp@gmail.com'],
+    ['Lexicon'],
+    ['Stefan', 'Larsson', 25],
+    ['Peter', 'Jansson', 24],
+  ];
+
+  const people = data.map(row => {
+    const [firstName, lastName, age, email] = row;
+    return new Person(firstName, lastName, age, email);
+  });
+
+  return people;
+}
+
+const peopleArray = createPersonArray();
+console.log(peopleArray.map(person => person.toString()));
 
